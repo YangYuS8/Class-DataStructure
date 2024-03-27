@@ -85,3 +85,17 @@ bool LinkStack<T>::Empty()
 {
     return top == NULL;
 }
+
+int main()
+{
+    LinkStack<int> stack;
+    stack.Push(1);
+    stack.Push(2);
+    stack.Push(3);
+    stack.Print();
+    cout << stack.Pop() << endl;
+    stack.Print();
+    cout << stack.GetTop() << endl;
+    stack.Print();
+    return 0;
+}
