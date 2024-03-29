@@ -61,7 +61,7 @@ T CircleQueue<T>::GetFront()
 template<class T>
 void CircleQueue<T>::Print()
 {
-    /*
+    /*  //以下注释部分为另一种思路
     int i = front; //从队头开始遍历
     while (i != rear) //遍历到队尾
     {
