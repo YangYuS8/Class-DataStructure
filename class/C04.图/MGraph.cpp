@@ -57,9 +57,11 @@ void MGraph<T>::DFS(int v)
     visited[v] = 1;
     // 2.找v顶点的未被访问的邻接顶点w，找到后对w进行DFS(递归)
     for (int w = 0; w < vernum; w++)
+    {
         if (visited[w] == 0 && arc[v][w] == 1)
             DFS(w);
-    // 把v的所有的w都找到
+        // 把v的所有的w都找到
+    }
 }
 
 template <class T>
