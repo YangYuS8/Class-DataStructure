@@ -21,7 +21,7 @@ private:
 
 public:
     MGraph(T a[], int vn, int en);
-    ~MGraph();
+    ~MGraph() {}
     void DFS(int v); // 深度优先遍历
     void BFS(int v); // 广度优先遍历
 };
@@ -94,4 +94,5 @@ int main()
         visited[i] = 0; // 初始化visited数组
     cout << "深度优先遍历序列：";
     G.DFS(1); // 从B开始深度优先遍历
+    return 0;
 }
