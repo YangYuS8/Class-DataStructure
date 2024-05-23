@@ -41,7 +41,7 @@ MGraph<T>::MGraph(T a[], int vn, int en)
             arc[i][j] = 0; // 初始化arc所有位置为0
     int m, n;
     cout << "请输入有边关系的序号对：";
-    for (int p = 0; p < arcnum; p +=)
+    for (int p = 0; p < arcnum; p++)
     {
         cin >> m >> n;
         arc[m][n] = 1; // 输入序号对的位置改为1
@@ -88,4 +88,10 @@ void MGraph<T>::BFS(int v)
 
 int main()
 {
+    char v[] = {'A', 'B', 'C', 'D', 'E'};
+    MGraph<char> G(v, 5, 4);
+    for (int i = 0; i < 5; i++)
+        visited[i] = 0; // 初始化visited数组
+    cout << "深度优先遍历序列：";
+    G.DFS(1); // 从B开始深度优先遍历
 }
