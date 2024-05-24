@@ -1,8 +1,9 @@
 #include <iostream>
 #include "SeqQueue.cpp"
+#include "CircleQueue.cpp" // 包含循环队列的实现文件
 using namespace std;
-const int MaxSize = 100;
-int visited[MaxSize];
+const int Max = 100;
+int visited[Max];
 
 // DFS
 // 1.访问顶点v（输出：Vv,Vv在vertex数组中的下标值）
@@ -14,9 +15,9 @@ class MGraph
 {
 private:
     // 顶点数组
-    T vertex[MaxSize];
+    T vertex[Max];
     // 关系
-    int arc[MaxSize][MaxSize];
+    int arc[Max][Max];
     int vernum, arcnum; // 元素个数,边的个数
 
 public:
@@ -64,13 +65,35 @@ void MGraph<T>::DFS(int v)
     }
 }
 
+// template <class T>
+// void MGraph<T>::BFS(int v)
+// {
+//     SeqQueue<int> Q;   // 采用顺序队列
+//     cout << vertex[v]; // 用输出V来表示访问顶点V
+//     visited[v] = 1;    // 表示顶点V已经被访问过
+//     Q.EnQueue(v);
+//     while (!Q.Empty())
+//     {
+//         v = Q.DeQueue();
+//         for (int j = 0; j < vernum; j++)
+//         {
+//             if (arc[v][j] == 1 && visited[j] == 0)
+//             {
+//                 cout << vertex[j];
+//                 visited[j] = 1;
+//                 Q.EnQueue(j);
+//             }
+//         }
+//     }
+// }
+
 template <class T>
 void MGraph<T>::BFS(int v)
 {
-    SeqQueue<int> Q;   // 采用顺序队列
-    cout << vertex[v]; // 用输出V来表示访问顶点V
-    visited[v] = 1;    // 表示顶点V已经被访问过
-    Q.EnQueue(v);
+    CircleQueue<int> Q;       // 采用循环队列
+    cout << vertex[v] << " "; // 用输出V来表示访问顶点V
+    visited[v] = 1;           // 表示顶点V已经被访问过
+    Q.EnQueue(v);             // 顶点v入队
     while (!Q.Empty())
     {
         v = Q.DeQueue();
@@ -94,5 +117,8 @@ int main()
         visited[i] = 0; // 初始化visited数组
     cout << "深度优先遍历序列：";
     G.DFS(1); // 从B开始深度优先遍历
+    cout << endl;
+    cout << "广度优先遍历序列：";
+    G.BFS(1); // 从B开始广度优先遍历
     return 0;
 }
