@@ -1,6 +1,9 @@
 #include <iostream>
+#include "CircleQueue.cpp"
 using namespace std;
 const int Max = 100;
+int visited[Max];
+
 struct ArcNode
 {
     int adjvertex; // 领接点的下标值
@@ -54,4 +57,58 @@ ALGraph<T>::ALGraph(T a[], int vn, int en)
         t->next = adjlist[vj].firstedge;
         adjlist[vj].firstedge = t;
     }
+}
+
+template <class T>
+void ALGraph<T>::DFS(int v)
+{
+    cout << adjlist[v].vertex << " ";
+    visited[v] = 1;
+    ArcNode *p = adjlist[v].firstedge;
+    while (p != NULL)
+    {
+        if (visited[p->adjvertex] == 0)
+            DFS(p->adjvertex);
+        p = p->next;
+    }
+}
+
+template <class T>
+void ALGraph<T>::BFS(int v)
+{
+    cout << adjlist[v].vertex << " ";
+    visited[v] = 1;
+    CircleQueue<int> Q;
+    ArcNode *p;
+    Q.EnQueue(v);
+    while (!Q.Empty())
+    {
+        v = Q.DeQueue();
+        p = adjlist[v].firstedge;
+        while (p != NULL)
+        {
+            if (visited[p->adjvertex] == 0)
+            {
+                cout << adjlist[p->adjvertex].vertex << " ";
+                visited[p->adjvertex] = 1;
+                Q.EnQueue(p->adjvertex);
+            }
+            p = p->next;
+        }
+    }
+}
+
+int main()
+{
+    char a[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
+    ALGraph<char> G(a, 7, 9);
+    cout << "深度优先搜索结果：";
+    G.DFS(0);
+    cout << endl;
+    for (int i = 0; i < 7; i++)
+        visited[i] = 0;
+    cout << "广度优先搜索结果：";
+    G.BFS(0);
+    cout << endl;
+    return 0;
 }
