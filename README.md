@@ -2,11 +2,18 @@
 
 [![HitCount](https://hits.dwyl.com/YangYuS8/Class-DataStructure.svg?style=flat)](http://hits.dwyl.com/YangYuS8/Class-DataStructure) ![Static Badge](https://img.shields.io/badge/build-C%2B%2B-cplusplus?logo=cplusplus&label=Language%3A&color=%2300599C) ![Github Created At](https://img.shields.io/github/created-at/YangYuS8/Class-DataStructure?logo=github&logoColor=%23181717&color=%2300AEF0) ![GitHub last commit](https://img.shields.io/github/last-commit/YangYuS8/Class-DataStructure?display_timestamp=author&logo=git&logoColor=%23F05032&label=upload&color=%23F05032) 
 
+@import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false}
+
+<!-- code_chunk_output -->
+
 - [数据结构与算法课程文件](#数据结构与算法课程文件)
   - [简介](#简介)
   - [使用方法](#使用方法)
-    - [一、直接在Github或Gitee页面查看](#一直接在github或gitee页面查看)
+    - [一、直接在Github或Gitee页面查看](#一-直接在github或gitee页面查看)
+    - [二、文件夹的目录解释](#二-文件夹的目录解释)
   - [最后](#最后)
+
+<!-- /code_chunk_output -->
 
 ## 简介
 
@@ -32,6 +39,33 @@
 **4.打开文件即可查看源代码：**
 
 ![查看源代码](./assets/img/查看源代码.jpeg)
+
+### 二、文件夹的目录解释
+
+> 最开始是想直接用中文文件夹作为目录的，但是后来发现Windows平台上的VSCode编译器中C++的开发不兼容中文路径，遂决定更改为英文目录并在此页面附加中文介绍
+
+```powershell
+Class-DataStructure
+│  .gitignore	// git仓库排除列表
+│  LICENSE		// 开源证书
+│  README.md	// 本仓库的说明文件
+│
+├─assets		// 主要存放文章配图
+│  └─img		// 图片目录
+│
+├─class			// 课堂上写的程序源代码
+│  ├─C02.LinearList		// 线性表
+│  │
+│  ├─C03.Tree			// 树
+│  │
+│  ├─C04.Graph			// 图
+│  │
+│  └─C05.Search			// 查找
+│  │
+│  └─C06.Sort			// 排序
+│
+└─practice		// OJ练习题的源代码
+```
 
 ## 最后
 
