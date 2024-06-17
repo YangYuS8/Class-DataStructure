@@ -53,24 +53,16 @@ int LinearSearch::Bin_Search(int key)
 int LinearSearch::Bin_Search(int low, int high, int key)
 {
     if (low > high)
-    {
         return 0; // 查找失败，返回0
-    }
     else
     {
         int mid = (low + high) / 2;
         if (r[mid] == key)
-        {
             return mid; // 查找成功，返回位置mid
-        }
         else if (r[mid] > key)
-        {
             return Bin_Search(low, mid - 1, key); // 在左半部分继续查找
-        }
         else
-        {
             return Bin_Search(mid + 1, high, key); // 在右半部分继续查找
-        }
     }
 }
 int main()
